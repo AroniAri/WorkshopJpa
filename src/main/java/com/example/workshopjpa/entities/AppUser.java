@@ -16,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-@ToString ()
+
 public class AppUser {
 
     @Id
@@ -24,25 +24,29 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
-    @Column (nullable = false, unique = true)
+    @Column (unique = true, nullable = false)
     @Setter
     private String username;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     @Setter
     private String password;
 
     @Column
-    private LocalDate registrationDate;
+    private LocalDate regDate;
 
     @Setter
     @OneToOne
-    private Details details;
+    @JoinColumn(name = "user_details_id")
+    private Details userDetails;
+
+    @OneToMany(mappedBy = "borrower")
+    private Set<Book> borrowedBooks = new HashSet<>();
 
     public AppUser(String username, String password, Details details) {
         this.username = username;
         this.password = password;
-        this.details = details;
+        this.userDetails = details;
     }
 
 

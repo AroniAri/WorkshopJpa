@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @AllArgsConstructor
@@ -25,14 +27,16 @@ public class Book {
     private String title;
     @Column
     private String isbn;
-    @Column
-    private String maxLoanDays;
 
-    public Book(String title, String isbn, String maxLoanDays) {
-        this.title = title;
-        this.isbn = isbn;
-        this.maxLoanDays = maxLoanDays;
-    }
+    @Column(nullable = false)
+    @Setter
+    private int maxLoanDays;
+
+   @OneToMany(mappedBy = "book")
+    @Setter
+    private Set<BookLoan> bookLoans = new HashSet<>();
+
+
 
 
 

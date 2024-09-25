@@ -12,9 +12,15 @@ import java.util.Optional;
 @Repository
 public interface AppUserDao extends CrudRepository <AppUser, Integer> {
 
-   // Optional<AppUser> findByUsername(String username);
-    //Optional<AppUser> findByEmailIgnoreCase(String email);
-    //Optional <AppUser> findByUsernameAndPassword(String username, String password);
-    //Optional<AppUser> findByDetails_Id(int details_Id);
-    //Optional<List<AppUser>> findAllBetweenTwoDates(LocalDate start, LocalDate endDate);
+    Optional<AppUser> findByUsername(String username);
+    Optional<List<AppUser>> findByRegDateBetween(LocalDate startDate, LocalDate endDate);
+    Optional<AppUser> findByUserDetailsId(int userDetailsId);
+    Optional<AppUser> findByUserDetailsEmailIgnoreCase(String email);
+
+
 }
+
+
+
+
+

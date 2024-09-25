@@ -9,8 +9,8 @@ import java.util.Optional;
 @Repository
 public interface DetailsDao extends CrudRepository<Details, Integer> {
 
-  //  Optional<Details> findByEmail(String email);
-   // Optional<Details> findByNameContaining(String name);
-   // Optional<Details> findByNameIgnoreCase(String name);
-   // Optional<Details> findByBirthDate(String birthDate);
+  Optional<Details> findByEmail(String email);
+  Optional<Details> findByNameContaining(String name);
+  Optional<Details> findByNameIgnoreCase(String name);
+
 }
