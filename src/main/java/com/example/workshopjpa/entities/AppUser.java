@@ -1,9 +1,12 @@
-package entities;
+package com.example.workshopjpa.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Getter
@@ -15,6 +18,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 @ToString ()
 public class AppUser {
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,17 +32,20 @@ public class AppUser {
     @Setter
     private String password;
 
-
+    @Column
+    private LocalDate registrationDate;
 
     @Setter
     @OneToOne
-    @JoinColumn(name = "details_id")
     private Details details;
-
 
     public AppUser(String username, String password, Details details) {
         this.username = username;
         this.password = password;
         this.details = details;
     }
+
+
+
+
 }

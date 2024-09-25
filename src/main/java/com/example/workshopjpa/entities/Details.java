@@ -1,4 +1,4 @@
-package entities;
+package com.example.workshopjpa.entities;
 
 
 import jakarta.persistence.*;
@@ -13,6 +13,7 @@ import java.time.LocalDate;
 
 @Entity
 public class Details {
+
     @Id
     @Column
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -24,7 +25,10 @@ public class Details {
     @Setter
     @Column(nullable = false, length = 100)
     private String name;
+    @Column
+    private LocalDate birthDate;
 
-    LocalDate birthDate;
+
+
 
 }
