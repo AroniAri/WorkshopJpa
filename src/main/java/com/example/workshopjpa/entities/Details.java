@@ -15,7 +15,6 @@ import java.time.LocalDate;
 public class Details {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -25,7 +24,6 @@ public class Details {
     @Setter
     @Column(nullable = false, length = 100)
     private String name;
-    @Column
     private LocalDate birthDate;
 
 
