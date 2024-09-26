@@ -40,4 +40,12 @@ public class Book {
 
     public void setAvilable(boolean b) {
     }
+
+    public Book(String title, String isbn, int maxLoanDays, boolean available, Set<BookLoan> bookLoans) {
+        this.title = title;
+        this.isbn = isbn;
+        this.maxLoanDays = maxLoanDays;
+        this.available = available;
+        this.bookLoans = bookLoans;
+    }
 }
