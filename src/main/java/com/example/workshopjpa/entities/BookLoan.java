@@ -38,11 +38,12 @@ public class BookLoan {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    public BookLoan(LocalDate loanDate, LocalDate dueDate, AppUser borrower, boolean returned, Book book) {
+    public BookLoan(LocalDate loanDate, Book book) {
         this.loanDate = loanDate;
-        this.dueDate = dueDate;
-        this.borrower = borrower;
-        this.returned = returned;
         this.book = book;
+        this.dueDate = loanDate.plusDays(book.getMaxLoanDays());
+        this.returned = false;
+        book.setAvilable(false);
     }
+
 }

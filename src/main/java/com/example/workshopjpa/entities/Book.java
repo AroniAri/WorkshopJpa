@@ -20,17 +20,17 @@ public class Book {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     public int Id;
 
-    @Column
+
     private String title;
-    @Column
+
     private String isbn;
 
     @Column(nullable = false)
     @Setter
     private int maxLoanDays;
+    private boolean available = true;
 
 
     @OneToMany(mappedBy = "book")
@@ -38,5 +38,6 @@ public class Book {
     private Set<BookLoan> bookLoans = new HashSet<>();
 
 
-
+    public void setAvilable(boolean b) {
+    }
 }

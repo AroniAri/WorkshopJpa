@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +23,7 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column (unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     @Setter
     private String username;
 
@@ -29,13 +31,16 @@ public class AppUser {
     @Setter
     private String password;
 
-    @Column
     private LocalDate regDate;
+
 
     @Setter
     @OneToOne
     @JoinColumn(name = "user_details_id")
     private Details userDetails;
+
+    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL)
+    private List<BookLoan> bookLoans = new ArrayList<>();
 
     public AppUser(String username, String password, LocalDate regDate, Details userDetails) {
         this.username = username;
@@ -45,7 +50,12 @@ public class AppUser {
 
     }
 
+    public void addBookLoan(BookLoan loan) {
+        this.bookLoans.add(loan);
+        loan.setBorrower(this);
 
+
+    }
 
 
 }
