@@ -10,12 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface AppUserDao extends CrudRepository <AppUser, Integer> {
+public interface AppUserRepository extends CrudRepository <AppUser, Integer> {
 
     Optional<AppUser> findByUsername(String username);
     Optional<List<AppUser>> findByRegDateBetween(LocalDate startDate, LocalDate endDate);
-    Optional<AppUser> findByUserDetailsId(int userDetailsId);
-    Optional<AppUser> findByUserDetailsEmailIgnoreCase(String email);
+    List<AppUser> findByUserDetailsId(int DetailsId);
+    List<AppUser> findByUserDetails_EmailIgnoreCase(String email);
+
+
 
 
 }

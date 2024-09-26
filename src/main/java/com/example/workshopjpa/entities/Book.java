@@ -32,11 +32,10 @@ public class Book {
     @Setter
     private int maxLoanDays;
 
-   @OneToMany(mappedBy = "book")
+
+    @OneToMany(mappedBy = "book")
     @Setter
     private Set<BookLoan> bookLoans = new HashSet<>();
-
-
 
 
 

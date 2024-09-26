@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 
-public interface BookDao extends CrudRepository <Book, Integer> {
+public interface BookRepository extends CrudRepository <Book, Integer> {
 
     List<Book> findByIsbnIgnoreCase(String isbn);
     List<Book> findByTitleContains(String title);

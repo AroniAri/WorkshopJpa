@@ -16,11 +16,11 @@ public class Details {
 
     @Id
     @Column
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Setter
-    @Column(nullable = false , unique = true, length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
     @Setter
     @Column(nullable = false, length = 100)

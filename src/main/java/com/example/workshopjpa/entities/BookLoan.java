@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
+@AllArgsConstructor
 
 
 @Entity
@@ -37,11 +38,11 @@ public class BookLoan {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    public BookLoan(LocalDate loanDate, LocalDate dueDate, boolean returned, AppUser borrower, Book book) {
+    public BookLoan(LocalDate loanDate, LocalDate dueDate, AppUser borrower, boolean returned, Book book) {
         this.loanDate = loanDate;
         this.dueDate = dueDate;
-        this.returned = returned;
         this.borrower = borrower;
+        this.returned = returned;
         this.book = book;
     }
 }

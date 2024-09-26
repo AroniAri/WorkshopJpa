@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface DetailsDao extends CrudRepository<Details, Integer> {
+public interface DetailsRepository extends CrudRepository<Details, Integer> {
 
   Optional<Details> findByEmail(String email);
   Optional<Details> findByNameContaining(String name);
